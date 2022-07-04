@@ -18,8 +18,8 @@ There is no password so leave it blank. If you add password please config bootst
 
 - Open MySQL workbench and import code to create database with structure (code provided with sql file).
 - Install composer (installation instructions: [Composer](https://getcomposer.org/download)) and in the terminal:
-  -if composer is installed locally in console type in: php 'path to composer.phar file'/composer.phar install
-  -if composer is installed on your system globally in console type in: composer install
+- if composer is installed locally in console type in: php 'path to composer.phar file'/composer.phar install
+- if composer is installed on your system globally in console type in: composer install
 - Open your browser and in the searchbar type in:
 
 ```sh
@@ -39,11 +39,6 @@ localhost/BIT_PP8
 - Go to localhost/bit_pp8/admin to access login page. (Login details are on the login page)
 - Once logged in you can see admin panel where you can create, update, delete pages.
   - Adding/updating pages accept html code , meaning you will see you desired page from user.
-
-```diff
- When updating projects to use multiselect press and hold CTRL button and left-click on names you want to add or remove from project.
- For Apple users press press and hold CMD button and left-click on names.
-```
 
 ## Project tasks
 
