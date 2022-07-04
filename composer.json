@@ -1,0 +1,19 @@
+{
+    "name": "nk/bit_pp8",
+    "description": "Learning project @ bit cms",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Model\\": "./src/models/"
+        }
+    },
+    "require": {
+        "doctrine/orm": "^2.12",
+        "symfony/cache": "^6.1",
+        "doctrine/annotations": "^1.13"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.1"
+    }
+}

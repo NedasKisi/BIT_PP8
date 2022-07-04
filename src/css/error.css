@@ -1,0 +1,27 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height: 50%;
+}
+
+.back {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.back a {
+  padding: 5px 8px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  border: solid 2px rgb(0, 0, 0);
+  border-radius: 20px;
+}
+
+.back a:hover {
+  border-radius: 20px;
+  background-color: rgb(230, 83, 53);
+  color: rgb(255, 255, 255);
+}
