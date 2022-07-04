@@ -150,6 +150,32 @@ if (isset($_POST['delete'])) {
                     header('Location:' . $rootDir . '/admin');
                 }
             }
+
+            // Update page
+
+            if (isset($_POST['edit-page'])) {
+                print('<form class="page-mod" action="" method="POST">
+                            <input type="hidden" name="current_id" value="' . $_POST['current_id'] . '">
+                            <label for="title">Title</label><br>
+                            <input class="title-input" type="text" name="edit-title" value="' . $_POST['current_name'] . '"><br>
+                            <label for="content">Page Content</label><br>
+                            <textarea name="edit-content" cols="100" rows="30">' . $_POST['current_content'] . '</textarea><br>
+                            <button type="submit" name="update-page">Update Page</button>
+                       </form>');
+            }
+            if (isset($_POST['update-page'])) {
+                $id = $_POST['current_id'];
+                $title = $_POST['edit-title'];
+                $content = $_POST['edit-content'];
+                if (!empty($title)) {
+                    $update = $entityManager->find('Model\Pages', $id);
+                    $update->setPageName($title);
+                    $update->setPageContent($content);
+                    $entityManager->persist($update);
+                    $entityManager->flush();
+                    header('Location:' . $rootDir . '/admin');
+                }
+            }
         }
 
         ?>
