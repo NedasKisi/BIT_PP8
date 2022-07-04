@@ -38,6 +38,15 @@ if (isset($_GET['action']) == 'logout') {
     header('Location:' . $rootDir . '/admin');
 }
 
+// Delete page logic
+
+if (isset($_POST['delete'])) {
+    $id = $_POST['delete'];
+    $update = $entityManager->find('Model\Pages', $id);
+    $entityManager->remove($update);
+    $entityManager->flush();
+    header('Location:' . $rootDir . '/admin');
+}
 
 ?>
 
@@ -88,6 +97,29 @@ if (isset($_GET['action']) == 'logout') {
 
                 print('<tr>
                        <td>' . $link->getPageName() . '</td>');
+
+                $link->getId() === 1 ?
+                    print('<td>
+                        <form action="" method="POST">
+                            <input type="hidden" name="current_name" value="' . $link->getPageName() . '" />
+                            <input type="hidden" name="current_content" value="' . $link->getPageContent() . '" />
+                            <input type="hidden" name="current_id" value="' . $link->getId() . '" />
+                            <button type="submit" name="edit-page" value="">Edit</button>
+                        </form>
+                        </td>
+                    </tr>') :
+                    print('<td>
+                            <form action="" method="POST">
+                                <input type="hidden" name="current_name" value="' . $link->getPageName() . '" />
+                                <input type="hidden" name="current_content" value="' . $link->getPageContent() . '" />
+                                <input type="hidden" name="current_id" value="' . $link->getId() . '" />
+                                <button type="submit" name="edit-page" value="">Edit</button>
+                            </form>        
+                            <form action="" method="POST">
+                                <button type="submit" name="delete" value="' . $link->getId() . '" onclick="return confirm(\'Are you sure?\')">Delete</button>
+                            </form>
+                       </td>
+                </tr>');
             }
             print('</table>');
 
